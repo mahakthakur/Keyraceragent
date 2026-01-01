@@ -1,0 +1,10 @@
+streamlit
+langchain
+langchain-groq
+langchain-community
+langchain-core
+langchain-classic
+PyPDF2
+pydantic
+tavily-python
+python-dotenv
