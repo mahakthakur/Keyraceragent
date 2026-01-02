@@ -61,7 +61,7 @@ class RoadmapAgent:
         os.environ["TAVILY_API_KEY"] = tavily_key
         self.llm = ChatGroq(
             api_key=groq_key, 
-            model_name="llama-3.1-8b-instant", 
+            model_name="llama-3.3-70b-versatile", 
             temperature=0, 
           
         )
@@ -87,6 +87,7 @@ class RoadmapAgent:
         Requirements:
         1. Search for 2026 tools for these gaps.
         2. Monthly breakdown table with: Goal, Project, and Documentation Links.
+        3. Generate a detailed roadmap for user with link and description.
         """
         return self.executor.invoke({"input": query})["output"]
 
@@ -96,7 +97,7 @@ class CareerSuccessAgent:
         # Llama 4 Maverick is highly efficient for structured search-to-table tasks
         self.llm = ChatGroq(
             api_key=groq_key, 
-            model_name="meta-llama/llama-4-maverick-17b-128e-instruct", 
+            model_name="llama-3.3-70b-versatile", 
             temperature=0.0
         )
         self.tools = [TavilySearchResults(max_results=5)]
